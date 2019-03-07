@@ -1,4 +1,5 @@
-This a study project called "A gallery App with React".
+This is a study project called "A gallery App with React".
+It's an image gallery where images are loaded from third-party server with the use of Flickr API, and React components are used to render them.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
