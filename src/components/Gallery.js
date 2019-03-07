@@ -1,10 +1,12 @@
 import React from 'react';
+import GalleryItem from './GalleryItem.js'
 
 const Gallery = () => {
   return(
     <div className="photo-container">
       <h2>Results</h2>
       <ul>
+        <GalleryItem />
       </ul>
     </div>
   );
