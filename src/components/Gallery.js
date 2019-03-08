@@ -1,12 +1,16 @@
 import React from 'react';
 import GalleryItem from './GalleryItem.js'
 
-const Gallery = () => {
+const Gallery = (props) => {
+  const results = props.data;
+
+  let images = results.map(image => <GalleryItem url={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`} key={image.id}/>)
+
   return(
     <div className="photo-container">
       <h2>Results</h2>
       <ul>
-        <GalleryItem />
+        {images}
       </ul>
     </div>
   );

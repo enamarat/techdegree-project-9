@@ -1,13 +1,14 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
-const Nav = () => {
+const Nav = (props) => {
 
   return(
       <nav className="main-nav">
         <ul>
-          <li><a href='#'>Cats</a></li>
-          <li><a href='#'>Dogs</a></li>
-          <li><a href='#'>Computers</a></li>
+          <li><NavLink to="/lightnings" onClick={()=>props.showPictures('lightningbolt')}>Lightnings</NavLink></li>
+          <li><NavLink to="/ocean" onClick={()=>props.showPictures('ocean')}>Ocean</NavLink></li>
+          <li><NavLink to="/horses" onClick={()=>props.showPictures('stallion')}>Horses</NavLink></li>
         </ul>
       </nav>
     );

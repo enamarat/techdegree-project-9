@@ -1,22 +1,48 @@
 import React from 'react';
 import Header from './Header.js'
 import Gallery from './Gallery.js'
-import apiKey from './config.js'
+import NotFound from './NotFound.js'
+import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom';
+import apiKey from '../config.js'
+import axios from 'axios';
 
-console.log(apiKey)
 
 class App extends React.Component {
   /* Initial state reflects the fact that there are no images*/
-  state = {
+constructor() {
+  super();
+  this.state = {
     galleryItems: []
+  }
+}
+
+showImages = (tag) => {
+  axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${tag}&per_page=24&format=json&nojsoncallback=1`)
+  .then(response => {
+    this.setState(prevState => ({
+      galleryItems: response.data.photos.photo
+    }));
+  })
+}
+
+  componentDidMount() {
+    this.showImages('lightningbolt');
   }
 
   render() {
     return(
+      <BrowserRouter>
       <div className="container">
-        <Header />
-        <Gallery />
+        <Header showPictures={this.showImages}/>
+        <Switch>
+          <Route exact path="/" render={()=> <Redirect to="/lightnings"/>}/>
+          <Route path="/lightnings" render={() => <Gallery data={this.state.galleryItems}/>}/>
+          <Route path="/ocean" render={() => <Gallery data={this.state.galleryItems}/>}/>
+          <Route path="/horses" render={() => <Gallery data={this.state.galleryItems}/>}/>
+          <Route component={NotFound}/>
+        </Switch>
       </div>
+      </BrowserRouter>
     );
  }
 }
