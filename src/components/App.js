@@ -36,9 +36,9 @@ showImages = (tag) => {
         <Header showPictures={this.showImages}/>
         <Switch>
           <Route exact path="/" render={()=> <Redirect to="/lightnings"/>}/>
-          <Route path="/lightnings" render={() => <Gallery data={this.state.galleryItems}/>}/>
-          <Route path="/ocean" render={() => <Gallery data={this.state.galleryItems}/>}/>
-          <Route path="/horses" render={() => <Gallery data={this.state.galleryItems}/>}/>
+          <Route path="/lightnings" render={() => <Gallery data={this.state.galleryItems} title="lightnings"/>}/>
+          <Route path="/ocean" render={() => <Gallery data={this.state.galleryItems} title="ocean"/>}/>
+          <Route path="/horses" render={() => <Gallery data={this.state.galleryItems} title="horses"/>}/>
           <Route component={NotFound}/>
         </Switch>
       </div>

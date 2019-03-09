@@ -8,7 +8,7 @@ const Gallery = (props) => {
 
   return(
     <div className="photo-container">
-      <h2>Results</h2>
+      <h2>Images of {props.title}</h2>
       <ul>
         {images}
       </ul>
