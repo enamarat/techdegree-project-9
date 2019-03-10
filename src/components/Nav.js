@@ -7,8 +7,8 @@ const Nav = (props) => {
       <nav className="main-nav">
         <ul>
           <li><NavLink to="/lightnings" onClick={()=>props.showPictures('lightningbolt')}>Lightnings</NavLink></li>
-          <li><NavLink to="/ocean" onClick={()=>props.showPictures('ocean')}>Ocean</NavLink></li>
-          <li><NavLink to="/horses" onClick={()=>props.showPictures('horse')}>Horses</NavLink></li>
+          <li><NavLink to="/waves" onClick={()=>props.showPictures('waves+sea')}>Waves</NavLink></li>
+          <li><NavLink to="/moon" onClick={()=>props.showPictures('moon')}>Moon</NavLink></li>
         </ul>
       </nav>
     );
