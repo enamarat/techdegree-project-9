@@ -6,7 +6,7 @@ const Header = (props) => {
   return (
     <header>
       <h1> Image Gallery </h1>
-      <SearchForm showPictures={props.showPictures} titleValue={props.updateTitle}/>
+      <SearchForm showPictures={props.showPictures} titleValue={props.updateTitle} switchLoadingStatus={props.switchLoadingStatus}/>
       <Nav showPictures={props.showPictures}/>
     </header>
   );

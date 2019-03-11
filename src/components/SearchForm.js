@@ -1,4 +1,5 @@
 import React from 'react';
+// WithRouter allows to pass "history" props to a component
 import { withRouter } from 'react-router-dom';
 
 class SearchForm extends React.Component {
@@ -9,19 +10,32 @@ class SearchForm extends React.Component {
     }
   }
 
+  /* This function updates the state of Searchform component
+  according to value of the search input value*/
   onSearchChange = (event) => {
     this.setState({
       searchText: event.target.value
     });
   }
 
+  /* This function conveys the value of the search input
+   field to showImages function which in turn inserts it in
+   query tag and sends to Flickr API */
   handleSubmit = (event) => {
     event.preventDefault();
     let query = this.search.value;
+    /* Switch loading state to true in order
+    to make loading message appear when search query is submitted*/
+    this.props.switchLoadingStatus();
+    /* Send a request to Flickr API and display images
+     according to tag */
     this.props.showPictures(query);
+    /* Update gallery title according to tag*/
     this.props.titleValue(query);
+    /* Redirect to Search route */
     let path = `/search/${query}`
     this.props.history.push(path);
+    /* Make search input field empty again*/
     event.currentTarget.reset();
   }
 
