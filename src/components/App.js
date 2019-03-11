@@ -32,18 +32,6 @@ class App extends React.Component {
   /* When page first loads, showImages function is called with a default value*/
   componentDidMount() {
     this.showImages();
-
-    /* After refreshing the page images of a link with class "active" are shown */
-    // const links = document.querySelectorAll('.main-nav li a');
-    //
-    // for (let i=0; i < links.length; i++) {
-    //   if (links[i].className==="active" && links[i].innerText!=="Lightnings") {
-    //     this.showImages(links[i].innerText);
-    //   }
-    //   if (links[i].className==="active" && links[i].innerText==="Lightnings") {
-    //     this.showImages('lightningbolt');
-    //   }
-    // }
   }
 
   /* This function updates the title of images according to value
